@@ -1,0 +1,24 @@
+{
+    "name": "mr-vic/mvc_framework",
+    "description": "Simple MVC Framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mr-vic",
+            "email": "mr.vic@bk.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "framework",
+            "App\\": "app"
+        },
+        "files": [
+            "app/confg.php",
+            "app/routes.php"
+        ]
+    }
+}
