@@ -21,8 +21,6 @@ class Router
     public function getContent()
     {
         $exec_route = null;
-        var_dump(self::$routes);
-        var_dump($this->request);
         foreach (self::$routes as $route) {
             /* @var Route $route */
             if($route->getPath() == $this->request->getPath() && $route->getType() == $this->request->getType()){

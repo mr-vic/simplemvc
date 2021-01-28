@@ -7,10 +7,20 @@ server {
 
         server_name simplemvc.loc www.simplemvc.loc;
 
+
         location / {
+           try_files $uri $uri/ @rewrite;
+        }
+
+        location @rewrite {
+            rewrite ^/(.*)$ /index.php?path=$1 last;
+        }
+
+        #location / {
                 # try_files $uri $uri/ = 404;
-                try_files $uri $uri/ /index.php?path=$uri&$args;
-                }
+                # try_files $uri $uri/ /index.php?path=$uri&$args;
+                # rewrite ^(.*)$ /index.php?path=$1;
+                #}
 
         location ~ \.php$ {
                 fastcgi_split_path_info ^(.+\.php)(/.+)$;
