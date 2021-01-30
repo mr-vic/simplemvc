@@ -5,11 +5,13 @@ use Framework\Controller;
 
 class HelloController extends Controller
 {
-    public function index() {
-        return $this->view('index.php', ['name' => 'Иванов']);
+    public function index()
+    {
+        return $this->view('index.php',['name'=>'Иванов']);
     }
 
-    public function data(){
-        return $this->view('data.php', ['name' => 'Иванов', 'group' => '605-71']);
+    public function data($user_name, $group_name)
+    {
+        return $this->view('data.php', ['name' => $user_name, 'group' => $group_name]);
     }
 }
