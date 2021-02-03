@@ -71,7 +71,7 @@ class Route
         foreach ($params as $param){
             $path = preg_replace("/{[a-z]\w*}/","(\w*)",$path);
         }
-        var_dump($path);
+        //var_dump($path);
         return '~'.$path.'~';
     }
 }
