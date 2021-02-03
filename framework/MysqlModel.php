@@ -39,7 +39,7 @@ class MysqlModel extends Model
             $query->bindParam(":$key", $field);
         }
         $query->execute();
-        var_dump("INSERT INTO {$this->table} ($keys) VALUES ($placehoders)");
+        //var_dump("INSERT INTO {$this->table} ($keys) VALUES ($placehoders)");
         
         //$this->connection->prepare("INSERT INTO {$this->table} ($keys) VALUES ($placehoders)")
 

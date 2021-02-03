@@ -7,9 +7,10 @@
     <body>
         <h1>Hello world!</h1>
         <ul class="list-group">
-        <?php foreach ($users as $user): ?>
+        <?php foreach ($todos as $todo): ?>
             <li class="list-group-item">
-                <?=$user->name;?>
+                <?=$todo->task;?>
+                <input type="checkbox" checked class="float-right">
             </li>
         <?php endforeach; ?>
         </ul>
