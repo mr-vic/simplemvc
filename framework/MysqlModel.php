@@ -34,7 +34,13 @@ class MysqlModel extends Model
         $keys_array = array_keys($fields);
         $keys = implode(", ", $keys_array);
         $placehoders = implode(", ", array_map(function($el){return ":$el";}, $keys_array));
+        $query = $this->connection->prepare("INSERT INTO {$this->table} ($keys) VALUES ($placehoders)");
+        foreach ($fields as $key => $field){
+            $query->bindParam(":$key", $field);
+        }
+        $query->execute();
         var_dump("INSERT INTO {$this->table} ($keys) VALUES ($placehoders)");
+        
         //$this->connection->prepare("INSERT INTO {$this->table} ($keys) VALUES ($placehoders)")
 
     }
