@@ -36,7 +36,7 @@ class Router
                 {
                     $rm = new \ReflectionMethod($controller_name,$method_name);
                     $params = [];
-                    $params_to_controller = [];
+                    $params_to_controller = ['request' => $this->request];
                     preg_match_all($exec_route->getMask(), $this->request->getPath(),$params);
                     foreach ($exec_route->getParams() as $key => $param){
                         $params_to_controller[$param] = $params[$key+1][0];

@@ -2,7 +2,7 @@
 
 namespace Framework\Routing;
 
-class Route 
+class Route
 {
     const METHOD_GET = 1;
     const METHOD_POST = 2;
@@ -12,13 +12,11 @@ class Route
     private $type;
 
     /**
-     * Route constructor
-     * 
+     * Route constructor.
      * @param $path
      * @param $action
      * @param $type
      */
-
     public function __construct($path, $action, $type)
     {
         $this->path = $path;
@@ -27,9 +25,7 @@ class Route
     }
 
     /**
-     * getPath getter function
-     *
-     * @return void
+     * @return mixed
      */
     public function getPath()
     {
@@ -37,9 +33,7 @@ class Route
     }
 
     /**
-     * getAction getter function
-     *
-     * @return void
+     * @return mixed
      */
     public function getAction()
     {
@@ -47,31 +41,26 @@ class Route
     }
 
     /**
-     * getType getter function
-     *
-     * @return int
+     * @return mixed
      */
     public function getType()
     {
         return $this->type;
     }
 
-    public function getParams()
-    {
+
+    public function getParams(){
         $params = [];
-        preg_match_all('/{([a-z]\w*)}/',$this->path,$params);
-        //var_dump($params[1]);
+        preg_match_all('/{([a-z]\w*)}/', $this->path, $params);
         return $params[1];
     }
 
-    public function getMask()
-    {
+    public function getMask(){
         $params = $this->getParams();
         $path = $this->path;
-        foreach ($params as $param){
-            $path = preg_replace("/{[a-z]\w*}/","(\w*)",$path);
+        foreach ($params as $param) {
+            $path = preg_replace("/{[a-z]\w*}/", "(\w*)", $path);
         }
-        //var_dump($path);
-        return '~'.$path.'~';
+        return "~".$path."/?$~";
     }
 }
