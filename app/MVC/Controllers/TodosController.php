@@ -26,6 +26,12 @@ class TodosController extends Controller
         header("Location: /todos");
     }
 
+    public function remove($request, $task_id)
+    {
+        $this->tm->deleteById($task_id);
+        header("Location: /todos");
+    }
+
 
     public function complete($request, $task_id)
     {

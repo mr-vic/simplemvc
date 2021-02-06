@@ -35,6 +35,12 @@ class MysqlModel extends Model
         // TODO: Implement updateWhere() method.
     }
 
+    public function deleteById($id)
+    {
+        $query = $this->connection->prepare("DELETE FROM `{$this->table}` WHERE {$this->getIdField()} = $id");
+        $query->execute();
+    }
+
 
     public function updateById($id, $data)
     {

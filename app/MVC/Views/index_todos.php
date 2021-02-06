@@ -35,6 +35,11 @@
                                                 <input onchange="$('form#complete-<?= $todo->id ?>').submit()" type="checkbox" <?= $todo->complete ? "checked" : "" ?>>
                                             </form>
                                         </div>
+                                        <div>
+                                            <form method="post" id="remove-<?= $todo->id ?>" action="/todos/<?= $todo->id ?>/remove">
+                                                <input onclick="$('form#remove-<?= $todo->id ?>').submit()" type="button" value="Удалить">
+                                            </form>
+                                        </div>
                                     </div>
                                 </li>
                             <?php endforeach; ?>

@@ -14,7 +14,7 @@ class FileModel extends Model
         
     }
 
-    public function updateWhere($condition)
+    public function updateWhere($condition, $id)
     {
         
     }
